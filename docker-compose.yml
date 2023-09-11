@@ -23,7 +23,7 @@ services:
       - /usr/src/app/node_modules
 
   db:
-    container_name: mysql
+    container_name: db
     image: mysql:8.0
     env_file:
       - .env
