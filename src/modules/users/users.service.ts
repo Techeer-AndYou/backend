@@ -31,5 +31,16 @@ export class UsersService {
         await this.usersRepository.save(newUser);
     }
 
+    async loginUser(loginUserDto: LoginUserDto): Promise<LoginUserDto> {
+        const {email, password} = loginUserDto;
+        const user = await this.usersRepository.findOne({where: {email}});
+
+        if(user && (await bcrypt.compare(password, user.password))){
+            return loginUserDto;
+        } else {
+            throw new UnauthorizedException('로그인 실패');
+        }
+    }
+
 
 }
