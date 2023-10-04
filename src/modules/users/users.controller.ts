@@ -15,7 +15,7 @@ export class UsersController {
     }
 
     @Post('/login')
-    loginUser(@Body() loginUserDto: LoginUserDto){
-        return this.usersService.loginUser(loginUserDto);
+    loginUser(@Body() loginUserDto: LoginUserDto, @Session() session){
+        return this.usersService.loginUser(loginUserDto, session);
     }
 }

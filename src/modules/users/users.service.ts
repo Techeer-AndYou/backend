@@ -31,11 +31,12 @@ export class UsersService {
         await this.usersRepository.save(newUser);
     }
 
-    async loginUser(loginUserDto: LoginUserDto): Promise<LoginUserDto> {
+    async loginUser(loginUserDto: LoginUserDto, session): Promise<LoginUserDto> {
         const {email, password} = loginUserDto;
         const user = await this.usersRepository.findOne({where: {email}});
 
         if(user && (await bcrypt.compare(password, user.password))){
+            session.userId = user.id;
             return loginUserDto;
         } else {
             throw new UnauthorizedException('로그인 실패');
