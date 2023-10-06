@@ -7,10 +7,14 @@ import {SessionModule} from 'nestjs-session';
 
 @Module({
   imports: [
-    UsersModule, 
+    UsersModule,
     MysqlModule,
     SessionModule.forRoot({
-      session: {secret: process.env.SESSION_SECRET}
+      session: {
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+      },
     }),
   ],
   controllers: [AppController],
