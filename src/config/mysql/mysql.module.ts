@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Users } from '../../modules/users/models/users.model';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+
 @Module({
   imports: [
     ConfigModule.forRoot(),

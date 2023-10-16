@@ -1,13 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from '../../../common/models/base.model';
 
 @Entity()
 export class Users extends BaseEntity {
-
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({nullable: false})
+  @Column({ nullable: false })
   password: string;
 
   @Column({ nullable: false })
@@ -18,8 +17,4 @@ export class Users extends BaseEntity {
 
   @Column({ nullable: false })
   phoneNumber: string;
-
 }
-
-
-
