@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './modules/users/users.module';
 import { MysqlModule } from './config/mysql/mysql.module';
-import {SessionModule} from 'nestjs-session';
+import { SessionModule } from 'nestjs-session';
 
 @Module({
   imports: [
