@@ -4,10 +4,12 @@ import { AppService } from './app.service';
 import { UsersModule } from './modules/users/users.module';
 import { MysqlModule } from './config/mysql/mysql.module';
 import { SessionModule } from 'nestjs-session';
+import { CardsModule } from './modules/cards/cards.module';
 
 @Module({
   imports: [
     UsersModule,
+    CardsModule,
     MysqlModule,
     SessionModule.forRoot({
       session: {
